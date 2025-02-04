@@ -20,7 +20,7 @@ import publicRouter from "@/public/public.router";
 import shareRouter from "@/share/share.router";
 import helmet from "helmet";
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 app.use(helmet(helmetConfig));
