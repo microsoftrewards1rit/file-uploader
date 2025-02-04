@@ -1,0 +1,33 @@
+<script id="data-script" type="application/json">
+  <%- JSON.stringify(files) %>
+</script>
+
+<%- include('partials/header') -%>
+<%- include('partials/spinner') -%>
+<%- include('partials/alert') -%>
+
+<div class="layout">
+  <aside class="layout-sidebar">
+    <p>Folder shared via public link</p>
+    <%- include('partials/tree', { baseUrl }) -%>
+  </aside>
+  <main class="layout-main">
+
+    <%- include('partials/breadcrumb', { baseUrl }) -%>
+    <%- include('partials/data-table', { baseUrl }) -%>
+
+    <sl-drawer label="File Information" class="drawer-overview">
+      <div class="drawer-content"></div>
+      <div class="btn-group" slot="footer">
+        <sl-button class="drawer-close-btn">Close</sl-button>
+        <sl-button type="submit" variant="primary" class="drawer-download-btn">Download</sl-button>
+      </div>
+    </sl-drawer>
+  </main>
+</div>
+
+<div id="data-container"data-id="<%= sharedFolderId %>"></div>
+
+<script type="module" src="/scripts/publicFolder.min.js"></script>
+
+<%- include('partials/footer') -%>

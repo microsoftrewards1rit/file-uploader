@@ -1,0 +1,69 @@
+<%- include('partials/header') -%>
+
+<main class="signup">
+  <div class="form-container">
+    <form novalidate action="/sign-up" method="POST" id="sign-up-form" class="input-validation-required validity-styles">
+      <p class="error"><%= locals.error %></p>
+      <h2 class="title">Sign Up</h2>
+      <p>Already have an account? <a href="/login">Log in</a></p>
+      <p class="error active"><%= locals.error %></p>
+
+      <div class="input-container">
+        <sl-input
+          name="username"
+          id="username"
+          label="Username"
+          placeholder="figroll26"
+          required
+          minlength="3"
+          autocomplete="new-username"
+          <% if (locals.usernameError) { %>autofocus<% } %>
+          value="<%= locals.username %>"
+        >
+        <sl-icon slot="suffix" name="exclamation-octagon" class="icon hidden"></sl-icon>
+      </sl-input>
+        <span class="<%= locals.usernameError ? "error active" : "error" %>"><%= locals.usernameError %></span>
+      </div>
+      <br/>
+
+      <div class="input-container">
+        <sl-input
+          type="password"
+          name="password"
+          id="password"
+          label="Password"
+          class="input"
+          placeholder="12345678"
+          required
+          minlength="8"
+          autocomplete="new-password"
+        >
+        <sl-icon slot="suffix" name="exclamation-octagon" class="icon hidden"></sl-icon>
+        </sl-input>
+        <span class="error">Error message</span>
+      </div>
+      <br/>
+
+      <div class="input-container">
+        <sl-input
+          type="password"
+          name="confirm-password"
+          id="confirm-password"
+          label="Confirm Password"
+          class="input"
+          placeholder="12345678"
+          required
+          autocomplete="new-password"
+        >
+        <sl-icon slot="suffix" name="exclamation-octagon" class="icon hidden"></sl-icon>
+        </sl-input>
+        <span class="error">Error message</span>
+      </div>
+      <br/>
+      <sl-button type="submit">Create Account</sl-button>
+    </form>
+  </div>
+</main>
+<script type="module" src="/scripts/signup.min.js"></script>
+
+<%- include('partials/footer') -%>
