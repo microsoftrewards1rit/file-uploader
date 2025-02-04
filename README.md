@@ -54,7 +54,7 @@ Create a project and set up a private storage bucket on [Supabase](https://supab
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/freehostingaccount1/file-uploader.git
+   git clone https://github.com/microsoftrewards1rit/file-uploader.git
    ```
 2. Install NPM packages
    ```sh
